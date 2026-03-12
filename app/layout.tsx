@@ -40,7 +40,7 @@ export default function RootLayout({
   // 2. 注入 JSON-LD 结构化数据 (AI 抓取的最爱)
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ManufacturingBusiness",
+    "@type": "Organization",
     "name": "HWZ Industrial Technology",
     "alternateName": "Biditech Mining Screen Expert",
     "url": "https://screenmesh.org",
