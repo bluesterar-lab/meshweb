@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-// 1. 核心 SEO 与 Geo 优化元数据
+// 1. 核心 SEO 与 Geo 优化元数据 (完全符合 Next.js 规范)
 export const metadata: Metadata = {
   title: 'Mining Screen Mesh Expert | HWZ Industrial Technology',
   description: 'Leading provider of advanced mining screens, anti-clogging screens, dewatering screens, and industrial machinery. Exporting premium mesh solutions to Australia and worldwide.',
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  // 官方推荐的添加自定义 meta 标签（如 Geo 标签）的方式
+  other: {
+    'geo.region': 'CN-31',
+    'geo.placename': 'Shanghai',
+  }
 }
 
 export default function RootLayout({
@@ -52,7 +57,7 @@ export default function RootLayout({
       "telephone": "+86-21-54385286",
       "contactType": "customer service",
       "email": "contact@biditech.cn",
-      "areaServed": ["AU", "SEA", "AF"], // 明确服务区域
+      "areaServed": ["AU", "SEA", "AF"], 
       "availableLanguage": ["English", "Chinese"]
     },
     // Geo 优化：告诉 AI 你的目标出口市场
@@ -75,18 +80,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
-        {/* Geo 位置标签：提升本地及 B2B 国际搜索权重 */}
-        <meta name="geo.region" content="CN-31" />
-        <meta name="geo.placename" content="Shanghai" />
-        
-        {/* 渲染结构化数据 */}
+      <body>
+        {/* 将 JSON-LD 放置在 body 内，避免 Next.js Head 组件的冲突 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body>{children}</body>
+        {children}
+      </body>
     </html>
   )
 }
