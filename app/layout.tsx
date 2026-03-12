@@ -64,7 +64,7 @@ export default function RootLayout({
     "areaServed": [
       { "@type": "Country", "name": "Australia" },
       { "@type": "Country", "name": "South Africa" },
-      { "@type": "Region", "name": "Southeast Asia" }
+      { "@type": "Place", "name": "Southeast Asia" }
     ],
     "makesOffer": [
       {
